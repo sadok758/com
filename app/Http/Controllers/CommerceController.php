@@ -28,9 +28,9 @@ class CommerceController extends Controller
      */
     public function destroy($id)
     {
-        $commerce = DB::table('commerces')->find($id);
-        $commerce->delete();
-        return redirect()->route('commerces.show');
+       // dd('delete');
+        $commerce = DB::table('commerces')->delete($id);
+        return redirect()->route('commerces.index')->with('success','suppression réussie');
     }
 
 

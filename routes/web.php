@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\CommerceController;
+//use App\http\Controllers\CommerceController;
+use App\Http\Controllers\CommerceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,8 @@ Route::get('/welcome', function () {
     return view('welcome
     ');
 });
-Route::get("/commerces/{commerce}/delete",CommerceController::Class,'destroy')->name('commerces.destroy');
-Route::get("/commerces",CommerceController::Class,'index')->name('commerces.index');
+//Route::get("/commerces/{commerce}/delete",CommerceController::Class,'destroy')->name('commerces.destroy');
+//Route::get("/commerces",CommerceController::Class,'index')->name('commerces.index');
 
-//route::resource('commerces',CommerceController::class);
+Route::resource('commerces',CommerceController::class);
+
