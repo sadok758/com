@@ -3,11 +3,14 @@
 @section('contenu')
 <div>
 @if ($message = Session::get('success'))
+
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
-</div>    
+</div>
+
+<a href="{{route('commerces.create')}}" class="btn btn-success m-1">Ajouter</a>    
 <table class="table table-striped">
   <thead>
     
@@ -46,8 +49,9 @@
     
     </tr>
     @endforeach
+
   </tbody>
 </table>
 
-
+ {!!$commerces->links() !!}
 @endsection

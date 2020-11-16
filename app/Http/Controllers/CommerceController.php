@@ -15,7 +15,8 @@ class CommerceController extends Controller
      */
     public function index()
     {
-        $commerces=Commerce::all();
+        //$commerces=Commerce::all();
+        $commerces=Commerce::paginate(5);
         // test dd($commerces);
             // test echo $commerces;
             return view('commerce.list',compact('commerces'));
@@ -28,9 +29,9 @@ class CommerceController extends Controller
      */
     public function destroy($id)
     {
-       // dd('delete');
         $commerce = DB::table('commerces')->delete($id);
         return redirect()->route('commerces.index')->with('success','suppression réussie');
+
     }
 
 
@@ -41,7 +42,7 @@ class CommerceController extends Controller
      */
     public function create()
     {
-        //
+        return view ('commerce.create');
     }
 
     /**
@@ -52,8 +53,20 @@ class CommerceController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+      //  dd($request);
+       $this->validate($request,[
+           'nom'=>'required',
+           'src'=>'required',
+           'prix'=>'required|numeric',
+           'marque'=>'required',
+           'quantite'=>'required|numeric', 
+           'description'=>'required',
+                            ]);
+    
+    $com=$request->all();
+    Commerce::create($com);//insertion dans la basz par Eloquent
+    return redirect()->route('commerces.index')->with('success','success Ajout');
+}
 
     /**
      * Display the specified resource.
@@ -76,7 +89,10 @@ class CommerceController extends Controller
      */
     public function edit($id)
     {
-        //
+        //dd($id);
+        $com=DB::table('commerces')->find($id);
+        //dd($com);
+      return view('commerce.edit',compact('com')) ; 
     }
 
     /**
@@ -88,7 +104,20 @@ class CommerceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'nom'=>'required',
+            'src'=>'required',
+           
+            'marque'=>'required',
+            'prix'=>'required|numeric',
+            'quantite'=>'required|numeric', 
+            'description'=>'required',
+                             ]);
+     
+    //$com=$request->all();
+    // Commerce::update($com);//insertion dans la basz par Eloquent
+     Commerce::where('id', $id)->update($request->all());
+     return redirect()->route('commerces.index')->with('success','success modification');
     }
 
    
