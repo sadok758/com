@@ -107,18 +107,35 @@ class CommerceController extends Controller
         $this->validate($request,[
             'nom'=>'required',
             'src'=>'required',
-           
-            'marque'=>'required',
             'prix'=>'required|numeric',
+            'marque'=>'required',            
             'quantite'=>'required|numeric', 
             'description'=>'required',
                              ]);
-     
+    
     //$com=$request->all();
-    // Commerce::update($com);//insertion dans la basz par Eloquent
-     Commerce::where('id', $id)->update($request->all());
-     return redirect()->route('commerces.index')->with('success','success modification');
-    }
+    //Commerce::update($com);//insertion dans la basz par Eloquent
 
-   
+    $data = request()->all();
+    //$data = request()->except(['_token']);
+    //dd($id);
+    Commerce::find($id)->update ($data);// il enregistre 
+    //dd($data);
+    //Commerce::where('id',$id)->update($data);
+    // dd($id);
+    return redirect()->to('commerces')->with('success','success modification');
+    //return redirect()->route('commerces.index')->with('success','success modification');
+
+     //Commerce::where('id',$id)->update($request->all());
+     //;
+    }
 }
+
+
+
+    
+        
+     
+    
+
+    
