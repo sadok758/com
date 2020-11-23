@@ -1,16 +1,19 @@
 @extends('master')
 @section('contenu')
-<form action={{ route('commerces.store')}} method="POST" class="col-10" >
+<form action={{ route('commerces.store')}} method="POST" class="col-10" enctype="multipart/form-data">
    @csrf
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Nom</label>
         <input type="text" name="nom" class="form-control" id="inputEmail4" placeholder="Entrez votre nom">
       </div>
-      <div class="form-group col-md-3">
+   <div class="form-group col-md-3">
         <label for="inputPassword4">Image</label>
-        <input type="text" name="src" class="form-control" id="inputPassword4">
+        <input type="file"  class="form-control" id="inputPassword4" name="src">
       </div>
+      
+        
+      
       <div class="form-group col-md-3">
         <label for="inputPassword7">Marque</label>
         <input type="text" name="marque" class="form-control" id="inputPassword7">

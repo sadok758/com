@@ -53,16 +53,25 @@ class CommerceController extends Controller
      */
     public function store(Request $request)
     {
-      //  dd($request);
+        
+     dd($request);
        $this->validate($request,[
            'nom'=>'required',
-           'src'=>'required',
+           'src'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
            'prix'=>'required|numeric',
            'marque'=>'required',
            'quantite'=>'required|numeric', 
            'description'=>'required',
                             ]);
+                            dd($request);
+
+    $imageName=time().".".$request->src->extension();
     
+    $request->src->move(public_path('images'),$imageName);
+    $request->src=$imageName;
+  
+
+
     $com=$request->all();
     Commerce::create($com);//insertion dans la basz par Eloquent
     return redirect()->route('commerces.index')->with('success','success Ajout');
