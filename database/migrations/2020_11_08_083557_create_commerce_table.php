@@ -17,7 +17,7 @@ class CreateCommerceTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nom');
-            $table->string('src');
+            $table->string('img');
             $table->integer('prix');
             $table->string('marque');
             $table->integer('quantite');

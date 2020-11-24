@@ -29,7 +29,7 @@
     <tr>
       <td>{{ $et->id }}</td>
       <td>{{ $et->nom }}</td>
-      <td>{{ $et->src }}</td>
+      <td>{{ $et->img }}</td>
       <td>{{$et->prix}}</td>
       <td>{{ $et->marque }}</td>
       <td>{{ $et->quantite }}</td>

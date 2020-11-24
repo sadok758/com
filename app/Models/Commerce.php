@@ -9,7 +9,7 @@ class Commerce extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'nom','src','prix','marque','quantite','description',
+        'nom','img','prix','marque','quantite','description',
     ];
     
 

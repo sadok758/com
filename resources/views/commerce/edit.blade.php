@@ -16,7 +16,7 @@
 
       <div class="form-group col-md-3">
         <label for="inputPassword4">Image</label>
-        <input type="text" value="{{$com->src}}" name="src" class="form-control" id="inputPassword4">
+        <input type="text" value="{{$com->img}}" name="src" class="form-control" id="inputPassword4">
       </div>
 
       <div class="form-row">

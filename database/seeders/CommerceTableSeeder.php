@@ -15,7 +15,7 @@ class CommerceTableSeeder extends Seeder
     {
         $commerce=new Commerce();
         $commerce->nom='televiseur';
-        $commerce->src='Skander';
+        $commerce->img='Skander';
         $commerce->prix=1000;
         $commerce->marque='Samsung';
         $commerce->quantite=10;
@@ -23,7 +23,7 @@ class CommerceTableSeeder extends Seeder
         $commerce->save();
         $commerce=new Commerce();
         $commerce->nom='shampoing';
-        $commerce->src='sans alcool';
+        $commerce->img='sans alcool';
         $commerce->prix=10;
         $commerce->marque='colorado';
         $commerce->quantite=30;

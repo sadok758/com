@@ -4,9 +4,10 @@
 @endsection
 @section('contenu')
 <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img src="{{asset($commerce->img) }}" class="card-img-top" alt="{{$commerce->nom}}">
   <div class="card-body">
-    <h5 class="card-title">{{$commerce->nom}} {{$commerce->src}}</h5>
+    
+    <h5 class="card-title">{{$commerce->nom}} </h5>
         <div><strong>Prix</strong> {{$commerce->prix}} </div>
         <div><strong>Marque</strong> {{$commerce->marque}} </div>
         <p class="card-text">{{$commerce->quantite}}</p>
